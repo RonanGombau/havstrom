@@ -1,0 +1,220 @@
+/* ==============================================================
+   STYLESHEET — all visual styling lives here.
+   The HTML file (index.html) only holds content/structure and
+   image file paths. If you're wondering "why doesn't this look
+   different when I edit the HTML", it's probably a rule below.
+   ============================================================== */
+
+/* --------------------------------------------------------------
+   Global variables — change a value here and it updates the
+   whole site (colors, spacing, max page width).
+   -------------------------------------------------------------- */
+:root {
+  --max-width: 1100px;   /* how wide the content can get on large screens */
+  --spacing: 1.5rem;     /* standard left/right padding used in several places */
+  --color-text: #222;    /* main text color */
+  --color-bg: #fff;      /* page background color */
+  --color-accent: #333;
+  --color-muted: #f4f4f4; /* light gray used for footer + image placeholder backgrounds */
+}
+
+/* Makes width/height calculations include padding and border,
+   so sizes behave predictably. Leave this as-is. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* makes the menu links (step 2) glide to sections instead of jumping */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif; /* change the whole site's font here */
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin: -2.0rem 0 2.5rem 0;
+}
+
+/* ==============================================================
+   1 + 2: HEADER — logo and menu
+   ============================================================== */
+.site-header {
+  display: flex;
+  background-color: #005493;
+  align-items: center;
+  justify-content: space-between; /* logo on the left, menu on the right */
+  padding: 1rem var(--spacing);
+  border-bottom: 0px solid #ddd;
+}
+
+/* LOGO SIZE CONTROL
+   This is what was missing before: without a max-height, an <img>
+   logo shows at its original file size (often huge).
+   - If you're using the text placeholder ("LOGO"), the border/padding
+     below just draws a box around the word.
+   - If you swap in <img class="logo" src="logo.png">, this same rule
+     applies to the image and keeps it capped at 50px tall, scaling
+     the width automatically so it doesn't stretch.
+   Adjust max-height to make your logo bigger or smaller. */
+.logo {
+  max-height: 50px;
+  width: auto;
+  font-weight: bold;
+  /*border: 1px solid #999;   /* only visible on the text placeholder box */
+  /*padding: 0.5rem 1rem;     /* only affects the text placeholder box */
+}
+
+.main-nav a {
+  margin-left: 1.5rem; /* spacing between menu links */
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================================================
+   3: HERO — background image, title, subtitle
+   The image itself is set here (CSS background), not in the HTML,
+   because it's a decorative background rather than page content.
+   ============================================================== */
+.hero {
+  /* STEP TO ADD YOUR OWN BACKGROUND PHOTO:
+     1. Put the image file in the same folder as index.html.
+     2. Delete "background-color: #ccc;" below.
+     3. Uncomment the line below and change 'hero.jpg' to your filename.
+     "cover" makes the image fill the whole box without distorting it;
+     "center" keeps it centered while it does that. */
+  background: url('Splash-background.jpg') center/cover no-repeat; 
+  /*background-color: #ccc; /* placeholder gray — remove once you add a real image above */
+  color: #fff;             /* text color over the image; change to a dark color if your photo is light */
+  text-align: center;
+  padding: 6rem 1rem;      /* controls how tall the hero section is */
+}
+
+.hero h1 {
+  font-size: 2.5rem; /* company name size */
+}
+
+.hero p {
+  font-size: 1.2rem; /* mission statement size */
+}
+
+/* ==============================================================
+   Generic section wrapper — used by About, Gallery
+   (Header and Footer have their own full-width styles above/below,
+   this one just keeps the middle content from stretching edge to
+   edge on wide screens.)
+   ============================================================== */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--spacing);
+}
+
+/* ==============================================================
+   4: ABOUT — plain text section
+   ============================================================== */
+.about p {
+  max-width: 700px; /* keeps long text from stretching too wide to read comfortably */
+  margin: 0 auto;
+  text-align: justify;
+
+}
+
+/* ==============================================================
+   5: GALLERY — image + caption grid
+   ============================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop; becomes 1 column on phones, see media query below */
+  gap: 2rem; /* space between gallery items */
+}
+
+.gallery-item {
+  text-align: center;
+}
+
+/* IMAGE SIZE CONTROL
+   This class is applied to the placeholder divs in the HTML.
+   When you replace a placeholder <div> with a real <img> and
+   keep class="img-placeholder" on it, these same rules apply:
+   - aspect-ratio keeps every image the same shape (4:3) even if
+     the original photos have different dimensions.
+   - width: 100% + object-fit: cover makes the photo fill that
+     shape and crop neatly instead of stretching or overflowing.
+   Without this class, a real <img> would display at its native
+   file size — which is the "huge image" problem from before. */
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--color-muted); /* only visible on the empty placeholder, not on real photos */
+  border: 1px dashed #aaa;        /* only visible on the empty placeholder */
+  object-fit: cover;              /* only affects real <img> tags, ignored by empty divs */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ==============================================================
+   6: FOOTER — contact details and legal
+   ============================================================== */
+.site-footer {
+  background: #005493;
+  padding: 2rem var(--spacing);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* contact info left, legal info right (stacks on phones) */
+  gap: 2rem;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+  color: white;
+}
+
+.legal {
+  font-size: 0.85rem;
+  color: white;
+}
+
+/* ==============================================================
+   RESPONSIVE — adjustments for phones (screens 600px or narrower)
+   Add more rules inside this block if something looks wrong on
+   mobile; anything outside this block applies to all screen sizes.
+   ============================================================== */
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;   /* stack logo above menu instead of side by side */
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem; /* shorter hero on small screens */
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* one image per row instead of two */
+  }
+
+  .site-footer {
+    flex-direction: column; /* stack contact info above legal info */
+  }
+}

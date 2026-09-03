@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ONE-PAGE BUSINESS WEBSITE
+  ============================================================
+  This is the only HTML file. All 6 sections from the sketch
+  live in this single page, in order, top to bottom:
+    1. Logo (in header)
+    2. Menu (in header)
+    3. Hero (background image + title + subtitle)
+    4. About (plain text)
+    5. Gallery (images + captions)
+    6. Footer (contact + legal)
+
+  All visual styling (colors, sizes, spacing, layout) is in
+  style.css. This file only holds the content and structure.
+  When you want to change TEXT or IMAGES, edit here.
+  When you want to change LOOK (colors, sizes, spacing), edit style.css.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havstrøm</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       1: LOGO + 2: MENU
+       The menu links (#about, #gallery, #contact) match the "id"
+       attributes on the sections further down the page. Clicking
+       a link scrolls smoothly to that section (see style.css,
+       "scroll-behavior: smooth" on the html element).
+       If you rename a section's id, update the matching href here too.
+       ============================================================ -->
+  <header class="site-header">
+
+    <!-- LOGO
+         Right now this is just a text placeholder. To use a real
+         logo image instead:
+         1. Put your logo file (e.g. logo.png) in this same folder.
+         2. Replace the line below with:
+            <img src="logo.png" alt="Company logo" class="logo">
+         The ".logo" CSS class already limits its height so it won't
+         appear huge — see the ".logo" rule in style.css. -->
+        <img src="logo.png" alt="Company logo" class="logo">
+
+
+    <nav class="main-nav">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       3: HERO — background image, title, subtitle
+       The background image is set in CSS (style.css, ".hero" rule),
+       not here, because it's a CSS background-image, not an <img> tag.
+       To add your own background photo:
+         1. Put the image file (e.g. hero.jpg) in this folder.
+         2. In style.css, find the ".hero" rule and uncomment /
+            edit the "background" line to point to your file.
+       Edit the title and subtitle text directly below. -->
+  <section class="hero">
+    <h1>Havstrøm</h1>
+    <p>Your teammate in all your boat projects</p>
+  </section>
+
+  <!-- ============================================================
+       4: ABOUT — plain text section
+       Just replace the lorem ipsum paragraph with your own text.
+       You can add more <p> paragraphs if needed, each one will
+       get spaced out automatically. ============================================================ -->
+  <section id="about" class="section about">
+    <p>
+    Welcome! <br>My name is Ronan. I am currently sailing with my personnal sailboat, but while doing so, I often pause my trip to work on different boat related projects. Let me know if you need help with anything!<br>
+    <p>
+    My experience includes:<br><br>
+        <p><b>Deliveries and skippering</b><br>
+          <p>On single or monohull sailboats, with crew or solo. In total, I have sailed over 50k nautical miles, of which over 10k as skipper, mostly offshore.<br></p></p>
+        <p><b>General maintenance</b><br>
+          <p>I worked professionally to maintain steel and aluminum boats, doing corrosion repair and light welding jobs, in TIG and MIG.  However most of my experience is in fiberglass boats.<br></p></p>
+      
+      <p><b>Electricity</b><br>
+          <p>I have maintained and installed 12V and 220V systems on many boats for years, but my biggest project was the design and full conversion of a sailboat to electric propulsion, with a new 48V system working alongside the 12V, with removal of the old diesel engine and tank, lithium battery pack installation and fitting of the new electric engines.<br></p></p>
+      <p><b>Mechanics</b><br>
+          <p>I have learned my way around engines after years working on different boats and their respective engine rooms. Therefore I can perform all the recurring jobs required of a diesel engine, plus some more important tasks and troubleshooting. <br><br></p>  
+      </p>
+    </p>
+<p>Let’s get in touch if you would like to have a some job done on your boat, so we can determine together whether my skills fit the specific task you have at hand. If you need more than one pair of hands, I can also reach several freelancers that I am very accustomed to work with, and so be able to tackle bigger projects as a team. Like this, things stay simple and affordable for you, and every projects gets the skills, resources and flexibility it needs.</p>
+
+    </p>
+  </section>
+
+  <!-- ============================================================
+       5: GALLERY — image + short caption, repeated
+       Each ".gallery-item" block below is one image + one line of text.
+       To add your own photo to a block:
+         1. Put the image file in this folder (e.g. photo1.jpg).
+         2. Replace that block's <div class="img-placeholder"></div>
+            with:
+            <img src="photo1.jpg" alt="Describe the photo" class="img-placeholder">
+         Keeping the class="img-placeholder" is what keeps the image
+         a consistent size/shape (see style.css) — otherwise a real
+         photo can display at its original, possibly huge, size.
+       Copy-paste a whole ".gallery-item" block to add more images;
+       delete a block to remove one. The grid in style.css adjusts
+       automatically. ============================================================ -->
+  <section id="gallery" class="section gallery">
+    <div class="gallery-item">
+      <div class="img-placeholder"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur.</p>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur.</p>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur.</p>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6: FOOTER — contact details + legal info
+       Edit the phone/email/address and the legal lines directly.
+       This section is also the scroll target for the "Contact"
+       menu link (id="contact"). ============================================================ -->
+  <footer id="contact" class="site-footer">
+    <div class="contact-details">
+      <p>Phone: +47 966 60 600</p>
+      <p>Email: ronan.gombau@gmail.com</p>
+      <p>Address: Bergsfjordveien 1785, 9385 Skaland</p>
+    </div>
+    <div class="legal">
+      <p>&copy; 2026 Havstrøm | Ronan Gombau. All rights reserved.</p>
+      <p>Company registration number / VAT: 931 148 656</p>
+    </div>
+  </footer>
+
+</body>
+</html>
